@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Okoene MakuoChukwu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 150px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 0.7rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Main Content */
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hello-image {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hello-image:hover {
+            transform: scale(1.05);
+        }
+
+        .intro-section {
+            color: white;
+            max-width: 600px;
+        }
+
+        .intro-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3c72;
+        }
+
+        /* Skills */
+        .skills {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .intro-section h1 {
+                font-size: 2rem;
+            }
+
+            .intro-section p {
+                font-size: 1rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hello-image {
+                max-width: 90%;
+            }
+        }
+
+        /* Simple animations */
+        .hello-image {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .intro-section {
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .buttons {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .skills {
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">OMC</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                    <div class="dropdown">
+                        <a href="#">Experience</a>
+                        <a href="#">Education</a>
+                        <a href="#">Resume</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Projects</a>
+                    <div class="dropdown">
+                        <a href="#">Web Apps</a>
+                        <a href="#">Mobile Apps</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Skills</a>
+                    <div class="dropdown">
+                        <a href="#">Frontend</a>
+                        <a href="#">Backend</a>
+                        <a href="#">Tools</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <img src="intro.webp" alt="Intro image" class="hello-image">
+        
+        <div class="intro-section">
+            <h1>Okoene Makuo Chukwu</h1>
+            <p>
+                A passionate developer creating innovative solutions with modern technologies. 
+                I love building web applications and bringing creative ideas to life through clean, 
+                efficient code.
+            </p>
+            
+            <div class="buttons">
+                <a href="#" class="btn btn-primary">View My Work</a>
+                <a href="#" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="skills">
+            <span class="skill">SQL</span>
+            <span class="skill">Excel</span>
+            <span class="skill">HTML/CSS</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">Python</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Okoene MakuoChukwu. All rights reserved.</p>
+    </footer>
+</body>
+</html>
